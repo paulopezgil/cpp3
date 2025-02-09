@@ -1,0 +1,1 @@
+Showing that multiple instantiations of a template with the same arguments don't result in 'code bloat' when linking.
