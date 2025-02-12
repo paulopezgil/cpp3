@@ -1,0 +1,1 @@
+A class forwarder to call a function with perfectly forwarded arguments is designed.
