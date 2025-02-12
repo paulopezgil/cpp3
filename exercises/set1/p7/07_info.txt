@@ -1,0 +1,14 @@
+template<typename T>
+std::ostream& operator<<(std::ostream& os, std::set<T> const& s) {
+    os << '{';
+    bool first = true;
+    for (auto const& item : s) {
+        if (!first) {
+            os << ", ";
+        }
+        first = false;
+        os << item;
+    }
+    os << '}';
+    return os;
+}
