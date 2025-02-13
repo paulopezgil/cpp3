@@ -1,4 +1,3 @@
 summary.txt
 storage/storage.hh
 storage/storage.ih
-main.cc
