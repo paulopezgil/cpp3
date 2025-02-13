@@ -1,4 +1,3 @@
 summary.txt
-main.cc
 insertion.hh
 answer.txt
