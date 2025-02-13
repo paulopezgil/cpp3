@@ -1,3 +1,6 @@
+#ifndef STORAGE_HH_
+#define STORAGE_HH_
+
 #include <vector>
 
 enum class TcpUdp
@@ -51,3 +54,5 @@ public:
 inline Storage::Storage(std::initializer_list<size_t> const &list)
 : d_data(list) 
 {}
+
+#endif

@@ -1,3 +1,6 @@
+#ifndef INSERTION_HH_
+#define INSERTION_HH_
+
 template<typename Type>
 std::ostream &operator<<(std::ostream &out, std::set<Type> const &nSet)
 {
@@ -13,3 +16,5 @@ std::ostream &operator<<(std::ostream &out, std::set<Type> const &nSet)
     out << '}';
     return out;
 }
+
+#endif
