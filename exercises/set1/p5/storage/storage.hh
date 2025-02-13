@@ -36,18 +36,18 @@ class Storage
 
 public:
     Storage() = default;
-    Storage(std::initializer_list<size_t> const &list) : d_data(list) {}
+    Storage(std::initializer_list<size_t> const &list);
 
     // Generic index operator
     template <typename TIndex>
-    size_t operator[](TIndex idx) const
-    {
-        return d_data.at(static_cast<size_t>(idx));  // Use at() for bounds checking
-    }
+    size_t operator[](TIndex idx) const;
 
     template <typename TIndex>
-    size_t &operator[](TIndex idx)
-    {
-        return d_data.at(static_cast<size_t>(idx));
-    }
+    size_t &operator[](TIndex idx);
 };
+
+#include "storage.i"
+
+inline Storage::Storage(std::initializer_list<size_t> const &list)
+: d_data(list) 
+{}
