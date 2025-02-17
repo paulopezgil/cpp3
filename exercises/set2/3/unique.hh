@@ -1,6 +1,7 @@
 #ifndef UNIQUE_HH_
 #define UNIQUE_HH_
 
+#include "globalcounter/counter.hh"
 #include <memory>
 
 template <typename Type>
@@ -9,6 +10,7 @@ class Unique
     std::unique_ptr<Type> d_ptr;
     static size_t s_count;
     static size_t s_actual;
+    GlobalCounter d_counter;    // independent of template arguments
 
     public:
         // destructor
@@ -33,6 +35,8 @@ class Unique
         
         size_t actual() const;
         size_t count() const;
+        size_t globalActual() const;
+        size_t globalCount() const;
 };
 
 #include "unique.ii"

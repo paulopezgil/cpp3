@@ -1,0 +1,1 @@
+Modifying the previous class so count and actual are independent of the template type arguments.

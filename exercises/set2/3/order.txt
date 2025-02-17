@@ -1,0 +1,6 @@
+summary.txt
+globalcounter/counter.hh
+globalcounter/constr.cc
+unique.hh
+unique.ii
+assignment.ii
