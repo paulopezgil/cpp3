@@ -1,0 +1,1 @@
+s_count and s_actual static data members are added to Unique class.

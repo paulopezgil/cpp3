@@ -7,12 +7,17 @@ template <typename Type>
 class Unique
 {
     std::unique_ptr<Type> d_ptr;
+    static size_t s_count;
+    static size_t s_actual;
 
     public:
+        // destructor
+        ~Unique();
+
         // default, copy and move constructor
-        Unique() = default; // uses default constructor of unique_ptr
+        Unique();
         Unique(Unique const &other);
-        Unique(Unique &&tmp) = default; // uses move constructor of unique_ptr
+        Unique(Unique &&tmp);
 
         // constructors accepting Types
         Unique(Type const &tp);
@@ -25,6 +30,8 @@ class Unique
         // get members
         Type &get();
         Type const &get() const;
+        size_t actual() const;
+        size_t count() const;
 };
 
 #include "unique.ii"
