@@ -1,0 +1,1 @@
+Embedding the static_cast template into a custom template.

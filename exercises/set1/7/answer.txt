@@ -1,0 +1,5 @@
+The 2 reasons for not using a double ampersand (&&) are:
+
+1. When using && instead of const &, the function can only take non-const arguments, thus not allowing to insert const sets into an ostream. Thus const & is the most adecuate type for passing both rvalues and lvalues independently from their constness.
+
+2. Using && would make sense if it was necessary to use perfect forwarding in our implementation, which is not the case.

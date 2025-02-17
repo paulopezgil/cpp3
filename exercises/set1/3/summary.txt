@@ -1,0 +1,1 @@
+Simplifying the use of void * returning functions/operators using templates.
