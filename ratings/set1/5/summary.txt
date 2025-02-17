@@ -1,0 +1,2 @@
+Exercise 5
+Build a template to construct a generic index operator

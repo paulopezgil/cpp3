@@ -1,0 +1,6 @@
+#include "sum.hh"
+#include <iostream>
+using namespace std;
+
+void print1();
+void print2();
