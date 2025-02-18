@@ -1,0 +1,1 @@
+Providing begin, end, rbegin and rend public members to class Storage.
