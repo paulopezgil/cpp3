@@ -1,0 +1,1 @@
+Developing a class that can be used with back_inserter.
