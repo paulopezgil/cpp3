@@ -1,4 +1,4 @@
 summary.txt
 unique.hh
-unique.ii
-assignment.ii
+unique.i
+assignment.i
