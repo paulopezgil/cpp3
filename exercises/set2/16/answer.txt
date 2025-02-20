@@ -1,0 +1,3 @@
+In the case that the unordered_map may be altered during the lifetime of our class's object, we can turn d_map into a reference to std::unordered_map<KeyT, ValT>, so whenever we modify the original unordered_map that was used to construct the class, d_map is also modified.
+
+However, if we want to access the new data in an ordered way, we'll need to re-run the sort member functions (except for the constructor).
