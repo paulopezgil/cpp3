@@ -52,9 +52,7 @@ template <typename Data>
 inline typename Storage<Data>::iterator
 Storage<Data>::iterator::operator++(int)
 {
-    iterator tmp = *this;
-    ++(*this);
-    return tmp;
+    return iterator(d_it++);
 }
 
 template <typename Data>
@@ -68,9 +66,7 @@ template <typename Data>
 inline typename Storage<Data>::iterator
 Storage<Data>::iterator::operator--(int)
 {
-    iterator tmp = *this;
-    --(*this);
-    return tmp;
+    return iterator(d_it--);
 }
 
 template <typename Data>

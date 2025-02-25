@@ -53,9 +53,7 @@ template <typename Data>
 inline typename Storage<Data>::reverse_iterator
 Storage<Data>::reverse_iterator::operator++(int)
 {
-    reverse_iterator tmp = *this;
-    ++(*this);
-    return tmp;
+    return iterator(d_rit++);
 }
 
 template <typename Data>
@@ -70,9 +68,7 @@ template <typename Data>
 inline typename Storage<Data>::reverse_iterator
 Storage<Data>::reverse_iterator::operator--(int)
 {
-    reverse_iterator tmp = *this;
-    --(*this);
-    return tmp;
+    return iterator(d_rit--);
 }
 
 template <typename Data>
