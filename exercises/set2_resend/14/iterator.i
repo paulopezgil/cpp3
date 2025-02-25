@@ -8,8 +8,8 @@ class Storage<Data>::iterator
         using iterator_category = std::random_access_iterator_tag;
         using value_type = Data;
         using difference_type = std::ptrdiff_t;
-        using pointer = Data*;
-        using reference = Data&;
+        using pointer = Data *;
+        using reference = Data &;
 
         // Required RandomAccessIterator operators
         iterator(typename std::vector<Data *>::iterator it);
