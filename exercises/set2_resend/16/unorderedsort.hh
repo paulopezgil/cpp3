@@ -11,7 +11,7 @@
 template <typename KeyT, typename ValT>
 class UnorderedSort
 {
-    std::unordered_map<KeyT, ValT> d_umap;
+    std::unordered_map<KeyT, ValT> &d_umap;
     std::map<KeyT, ValT> d_map;
 
     public:

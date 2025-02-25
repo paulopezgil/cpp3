@@ -1,4 +1,7 @@
 *.zip
 *.ini
 *.Identifier
+*.o
+*.out
+*.exe
 Makefile
