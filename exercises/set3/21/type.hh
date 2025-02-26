@@ -8,7 +8,7 @@
 template <typename Needle, typename ...Types>
 struct Type
 {
-    enum { located = Helper<Needle, Types...>::value };
+    enum { located = TypeIdx<Needle, Types...>::value };
 };
 
 // base case: only 1 template argument

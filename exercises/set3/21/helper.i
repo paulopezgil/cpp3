@@ -1,17 +1,17 @@
 #include <type_traits>
 
 template <typename Needle, typename First, typename ...Types>
-struct Helper
+struct TypeIdx 
 {
     enum
     {
         value = std::is_same<Needle, First>::value ? 
-                                        1 : 1 + Helper<Needle, Types...>::value
+                                        1 : 1 + TypeIdx<Needle, Types...>::value
     };
 };
 
 template <typename Needle, typename First>
-struct Helper<Needle, First>
+struct TypeIdx<Needle, First>
 {
     enum { value = std::is_same<Needle, First>::value };
 };
