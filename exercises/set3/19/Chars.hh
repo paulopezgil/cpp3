@@ -9,7 +9,8 @@ class Chars
 {
     // allow insertions into ostreams
     template <char ...Params>
-    friend std::ostream& operator<<(std::ostream& os, const Chars<Params...>&);
+    friend std::ostream& operator<<(std::ostream& os, 
+                                    Chars<Params...> const &chars);
     //friend std::ostream &operator<<(std::ostream &out, Chars const &chars);
 };
 
