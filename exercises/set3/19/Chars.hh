@@ -11,7 +11,6 @@ class Chars
     template <char ...Params>
     friend std::ostream& operator<<(std::ostream& os, 
                                     Chars<Params...> const &chars);
-    //friend std::ostream &operator<<(std::ostream &out, Chars const &chars);
 };
 
 template <char ...Args>
