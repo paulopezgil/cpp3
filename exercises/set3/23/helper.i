@@ -7,7 +7,7 @@ struct Type<Needle, Types...>::TypeIdx
     enum
     {
         value = std::is_same<NeedleIdx, FirstIdx>::value ? 
-                                    1 : 1 + TypeIdx<NeedleIdx, TypesIdx...>::value
+                                1 : 1 + TypeIdx<NeedleIdx, TypesIdx...>::value
     };
 };
 
