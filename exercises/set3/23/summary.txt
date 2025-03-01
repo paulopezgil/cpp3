@@ -1,0 +1,1 @@
+The class template in ex21 is modified so the TypeIdx class is a private nested class of Type.

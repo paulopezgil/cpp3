@@ -1,0 +1,1 @@
+The insertion operator is overloaded for a variadic class template.
