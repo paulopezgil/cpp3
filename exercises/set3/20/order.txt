@@ -1,2 +1,4 @@
 summary.txt
-Chars.hh
+chars/chars.hh
+onechar/onechar.hh
+merge.hh

@@ -6,7 +6,7 @@ struct TypeIdx
     enum
     {
         value = std::is_same<Needle, First>::value ? 
-                                        1 : 1 + TypeIdx<Needle, Types...>::value
+                                    1 : 1 + TypeIdx<Needle, Types...>::value
     };
 };
 
