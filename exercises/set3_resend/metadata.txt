@@ -1,4 +1,0 @@
-Set: Set 3 resend
-Authors: Pau Lopez, Peter Versluis
-
-Rater: FB
