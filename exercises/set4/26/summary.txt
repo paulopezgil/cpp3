@@ -1,1 +1,1 @@
-A template class insertable that supports insertion into ostreams is developed using policies.
+The members of the previous policy class are implemented.

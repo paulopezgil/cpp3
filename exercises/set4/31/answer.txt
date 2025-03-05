@@ -1,0 +1,14 @@
+Suppose that we've overloaded the plus operator using an expression template:
+
+template <typename Lhs, typename Rhs>
+BinExpr<Lhs, Rhs, std::plus>
+operator+(Lhs const &lhs, Rhs const &rhs)
+{
+	return BinExpr<Lhs, Rhs, plus>{ lhs, rhs };
+}
+
+>> What's the result of the above expression?
+
+When evaluating the expression v1 + v2 + v3 + v4 operator + is called returning a BinExpr<BinExpr<BinExpr<VI, VI, std::plus>>, VI, std::plus>, VI, std::plus>, which is a very efficient way to compute the sum of 4 VI objects.
+The beauty of the overloaded index operator is that it works with both left operands being a BinExpr or the original container, as seen in the implementation provided in the slides. This is the key part of the implementation: it allows us to evaluate the expression element by element, avoiding unnecessary copies and thus improving the efficiency.
+So, when the conversion operator is called for BinExpr, it computes the sum of each element of the array recursively using the index operator in a very efficient way.

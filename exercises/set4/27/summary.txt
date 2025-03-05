@@ -1,1 +1,0 @@
-The members of the previous policy class are implemented.
