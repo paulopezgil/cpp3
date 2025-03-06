@@ -2,6 +2,9 @@
 #include <algorithm>
 #include <iterator>
 
+// the extension of the file should .i instead of .hh
+// it's being changed so the mail handler accepts it
+
 // initialize Insertable with a Container object using base class initializer
 template <template <typename> class Container, typename Type>
 inline Insertable<Container, Type>::Insertable(Container<Type> const &other)
@@ -30,8 +33,8 @@ inline Insertable<Container, Type>::Insertable(Type &&tmp)
 {}
 
 template <template <typename> class Container, typename Type>
-inline std::ostream &operator<<(std::ostream &out,
-                                Insertable<Container, Type> const &ins)
+std::ostream &operator<<(std::ostream &out,
+                         Insertable<Container, Type> const &ins)
 {
     std::copy(ins.begin(), ins.end(), std::ostream_iterator<Type>(out, "\n"));
     return out;
