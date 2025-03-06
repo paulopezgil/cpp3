@@ -1,23 +1,23 @@
-#include "deduct.hh"
+#include "createPtr.hh"
 #include <iostream>
 using namespace std;
 
 int main()
 {
-    int a = 0;
-    int *b = 0;
-    int &c = a;
-    int &&d = 0;
+    int v1 = 1111;
+    int *v2 = 0;
+    int &v3 = v1;
+    int &&v4 = 2;
 
     // show 1, 2, 3, 4 to cout
-    cout << Deduct<decltype(a)>::value << ' '
-         << Deduct<decltype(b)>::value << ' '
-         << Deduct<decltype(c)>::value << ' '
-         << Deduct<decltype(d)>::value << '\n';
+    cout << Deduct<decltype(v1)>::value << ' '
+         << Deduct<decltype(v2)>::value << ' '
+         << Deduct<decltype(v3)>::value << ' '
+         << Deduct<decltype(v4)>::value << '\n';
 
     // creating a ptr to a const int
-    int const e = 0;
-    auto ptr = createPtr(e);
-    ptr = &a;
+    int const v5 = 0;
+    auto ptr = createPtr(v5);
+    ptr = &v1;
     cout << *ptr << '\n';
 }

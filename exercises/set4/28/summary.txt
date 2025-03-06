@@ -1,1 +1,1 @@
-A trait class that 
+A trait class specialized for different types and a template function that creates pointers to the underlying types.
