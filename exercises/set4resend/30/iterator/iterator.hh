@@ -1,8 +1,6 @@
-// JB: 0
 #ifndef ITERATOR_HH
 #define ITERATOR_HH
 #define IteratorType Iterator<Data, Container>
-#define IteratorType_ Iterator<Data_, Container_>
 
 #include <iterator>
 
@@ -37,20 +35,14 @@ struct Iterator
         // Missing members in last implementation
         Data *operator->();
 
-        //JB: Q.
-        // JB: Unfortunately, this turns every operator on whatever other
-        // JB: Container_ containing whatever other Data_ into a friend of
-        // JB: this iterator<Data, Container>. That's too unsafe.
-        template <typename Data_, template <typename> class Container_>
-        friend bool operator==(IteratorType_ const &lhs,
-                               IteratorType_ const &rhs);      
-        template <typename Data_, template <typename> class Container_>
-        friend auto operator<=>(IteratorType_ const &lhs,
-                                IteratorType_ const &rhs);
-        template <typename Data_, template <typename> class Container_>
+        // Now fried functions are tailored to the specific template types
+        friend bool operator==<Data, Container>(IteratorType const &lhs,
+                               IteratorType const &rhs);      
+        friend auto operator<=><Data, Container>(IteratorType const &lhs,
+                                IteratorType const &rhs);
         friend typename IteratorType::difference_type 
-        operator-(IteratorType_ const &lhs,
-                  IteratorType_ const &rhs);
+        operator-<Data, Container>(IteratorType const &lhs,
+                  IteratorType const &rhs);
         Iterator(typename Container<Data *>::iterator const &current);
 };
 
