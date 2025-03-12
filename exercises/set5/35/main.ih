@@ -1,0 +1,24 @@
+#include "dereferenceable.hh"
+#include <iostream>
+
+// an empty function that uses Dereferenceable in it's template parameter list
+template <Dereferenceable Type>
+void fun1(Type tp) {};
+
+// an empty function that uses Dereferenceable in the requirements
+template <typename Type> requires Dereferenceable<Type>
+void fun2(Type tp) {};
+
+// a class that uses Dereferenceable in it's template parameter list
+template <Dereferenceable Type>
+struct Class1
+{
+    void fun() const {};
+};
+
+// a class function that uses Dereferenceable in the requirements
+template <typename Type> requires Dereferenceable<Type>
+struct Class2
+{
+    void fun() const {};
+};

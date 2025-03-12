@@ -1,0 +1,1 @@
+A concept that makes sure that basic math expressions are available for 2 types.

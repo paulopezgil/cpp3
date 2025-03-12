@@ -1,0 +1,1 @@
+Creating a concept that checks whether a type is dereferenceable and showing how to use it in two different ways in template functions and classes.
