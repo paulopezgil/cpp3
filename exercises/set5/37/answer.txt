@@ -1,0 +1,1 @@
+A concept that checks if two operands satisfy certain conditions on arithmetical operations.

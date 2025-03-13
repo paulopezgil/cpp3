@@ -1,0 +1,1 @@
+A concept that checks if two types are comparable and a function and class that take comparable types as template parameters.

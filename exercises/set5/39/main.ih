@@ -1,0 +1,12 @@
+#include "random.hh"
+#include <vector>
+#include <algorithm>
+#include <utility>
+using namespace std;
+
+// A function that calls std::sort on iterators satisfying RndIterator concept
+template <RndIterator It>
+void rndSort(It &&begin, It &&end)
+{
+    sort(forward<It>(begin), forward<It>(end));
+}
