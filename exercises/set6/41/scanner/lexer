@@ -1,0 +1,3 @@
+%%
+[ \t\n]+                            // skip white space chars.
+[[:alpha:]]+                        d_words.push(matched());
