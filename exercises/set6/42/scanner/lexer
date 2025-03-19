@@ -1,0 +1,3 @@
+%%
+[\n]+       // skip new lines
+.+          d_lines.push_back(matched());
