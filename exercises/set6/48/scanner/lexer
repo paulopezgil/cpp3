@@ -1,0 +1,23 @@
+%x INCLUDE
+%x PATH
+
+%%
+
+"#include "             begin(StartCondition_::INCLUDE);
+                        
+<INCLUDE>\"             begin(StartCondition_::PATH);
+
+<PATH>[^\"\n]+          {
+                            // obtain the path
+                            std::filesystem::path pathname{ matched() };
+
+                            // open the file
+                            std::ifstream includedFile{ pathname };
+
+                            // process the file
+                            Scanner auxScanner{ includedFile, out() };
+                            auxScanner.lex();
+                        }
+
+// skip final double quote and return to previous condition
+<PATH>\"                 begin(StartCondition_::INITIAL);
