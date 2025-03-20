@@ -9,14 +9,31 @@
 
 <PATH>[^\"\n]+          {
                             // obtain the path
-                            std::filesystem::path pathname{ matched() };
+                            std::string pathName { matched() };
+                            std::filesystem::path path{ pathName };
 
                             // open the file
-                            std::ifstream includedFile{ pathname };
+                            std::ifstream includedFile{ path };
+                            
+                            // check if file was opened correctly
+                            if (!includedFile)
+                                throw std::runtime_error("Cannot open '"
+                                                         + pathName + "\'\n");
+                                
+                            // check for recursive included
+                            if (d_included.find(pathName) == d_included.end())
+                                d_included.insert(pathName);
+                            else
+                            {
+                                throw std::runtime_error("Recursive inclusion\n");
+                            }
 
                             // process the file
                             Scanner auxScanner{ includedFile, out() };
                             auxScanner.lex();
+
+                            // erase the file name from the inclusions
+                            d_included.erase(pathName);
                         }
 
 // skip final double quote and return to previous condition
