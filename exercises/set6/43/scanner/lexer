@@ -3,7 +3,7 @@
 // don't replace strings in comments
 "//".*$         out() << matched();
 
-\"[^\"]*\"      {
+'R'?\"[^\"]*\"      {
                     ++d_num;
                     out() << "grabbed(" << d_num << ", \"" << filename() << "\")";
                 };
