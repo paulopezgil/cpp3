@@ -1,8 +1,0 @@
-        enum
-        {
-            WORD,
-            INTEGER,
-            REAL,
-            STRING,
-            OPERATOR
-        };

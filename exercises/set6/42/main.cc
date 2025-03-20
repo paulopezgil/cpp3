@@ -1,12 +1,11 @@
 #include "scanner/Scanner.h"
+#include <iostream>
 
 int main()
 {
     Scanner scanner;
 
-    // read all the lines from cin
+    // process the lines according to the rules we defined
+    std::cout << "Line 1\n";
     scanner.lex();
-
-    // print the tokenized lines
-    scanner.printResults();
 }
