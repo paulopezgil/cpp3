@@ -14,9 +14,11 @@ class Scanner: public ScannerBase
     static std::set<std::string> d_included;
 
     public:
-        explicit Scanner(std::istream &in = std::cin, std::ostream &out = std::cout, bool keepCwd = true);
+        explicit Scanner(std::istream &in = std::cin,
+                         std::ostream &out = std::cout, bool keepCwd = true);
 
-        Scanner(std::string const &infile, std::string const &outfile, bool keepCwd = true);
+        Scanner(std::string const &infile, std::string const &outfile,
+                bool keepCwd = true);
         
         // $insert lexFunctionDecl
         int lex();
@@ -40,7 +42,8 @@ inline Scanner::Scanner(std::istream &in, std::ostream &out, bool keepCwd)
     ScannerBase(in, out, keepCwd)
 {}
 
-inline Scanner::Scanner(std::string const &infile, std::string const &outfile, bool keepCwd)
+inline Scanner::Scanner(std::string const &infile, std::string const &outfile,
+                        bool keepCwd)
 :
     ScannerBase(infile, outfile, keepCwd)
 {}

@@ -6,7 +6,9 @@
 [0-9]+                  std::cout << "integer: "  << matched() << '\n';
 [0-9]+\.[0-9]+          std::cout << "float: "    << matched() << '\n';
 \".+\"                  std::cout << "string: "   << matched() << '\n';
-\'[[:alpha:]]\'         std::cout << "character " << static_cast<int>(matched()[0]) << ": " << matched() << '\n';
+\'[[:alpha:]]\'         std::cout << "character "
+                                  << static_cast<int>(matched()[0]) << ": "
+                                  << matched() << '\n';
 
 // Operators
 "++"                                   |
@@ -33,4 +35,5 @@
 "^="                                   |
 "<<="                                  |
 ">>="                                  |
-[+\-*/%=<>!&|^~?:;.,\[\](){}\#]        std::cout << "operator: "  << matched() << '\n';
+[+\-*/%=<>!&|^~?:;.,\[\](){}\#]        std::cout << "operator: " 
+                                                 << matched() << '\n';

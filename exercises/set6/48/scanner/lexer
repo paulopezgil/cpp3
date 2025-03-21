@@ -25,7 +25,8 @@
                                 d_included.insert(pathName);
                             else
                             {
-                                throw std::runtime_error("Recursive inclusion\n");
+                                throw std::runtime_error("Recursive
+                                                          inclusion\n");
                             }
 
                             // process the file
