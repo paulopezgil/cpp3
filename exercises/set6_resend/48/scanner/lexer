@@ -1,0 +1,14 @@
+%x INCLUDE
+
+%%
+
+"#include \""       begin(StartCondition_::INCLUDE);
+
+// read the path between double quotes
+<INCLUDE>[^\"]+     openFile(matched());
+
+// skip the closing quote after the filename
+<INCLUDE>\"         begin(StartCondition_::INITIAL);
+
+// Go to the previous stream.
+<<EOF>>             closeFile();
