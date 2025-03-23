@@ -5,7 +5,7 @@ try
 {
     // a file name must be provided
     if (argc != 2)
-        throw std::runtime_error("Please specify a file name\n");
+        throw std::runtime_error("Please specify a file name");
 
     // initialize the scanner
     Scanner scanner;
@@ -16,5 +16,5 @@ try
 }
 catch(std::runtime_error const &exc)
 {
-    cerr << "Program ended after catching an exception: " << exc.what();
+    cerr << "Program ended: " << exc.what() << '\n';
 }

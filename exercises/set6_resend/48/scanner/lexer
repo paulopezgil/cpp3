@@ -4,7 +4,7 @@
 
 "#include \""       begin(StartCondition_::INCLUDE);
 
-// read the path between double quotes
+// open the file with path between double quotes
 <INCLUDE>[^\"]+     openFile(matched());
 
 // skip the closing quote after the filename

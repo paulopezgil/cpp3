@@ -4,4 +4,5 @@ main.ih
 +scanner/lexer
 scanner/Scanner.h
 scanner/Scanner.ih
-+scanner/included.cc
++scanner/openfile.cc
++scanner/closefile.cc

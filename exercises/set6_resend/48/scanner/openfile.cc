@@ -4,7 +4,7 @@ void Scanner::openFile(std::string const &filename)
 {
     // check for recursive inclusion
     if (d_included.find(filename) != d_included.end())
-        throw std::runtime_error("Recursive inclusion\n");
+        throw std::runtime_error("Recursive inclusion");
     
     // save the file name
     d_included.insert(filename);
