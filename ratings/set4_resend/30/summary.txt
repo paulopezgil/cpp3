@@ -1,0 +1,1 @@
+Modifying exercise 14 so the iterator is a more generic class.
