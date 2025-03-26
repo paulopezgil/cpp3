@@ -1,4 +1,0 @@
-#include "scanner/Scanner.h"
-#include <sstream>
-#include <fstream>
-using namespace std;

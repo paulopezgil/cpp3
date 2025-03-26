@@ -1,1 +1,0 @@
-A program that prints the words found in a piece of text in a sorted order.
