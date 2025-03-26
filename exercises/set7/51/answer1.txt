@@ -1,0 +1,6 @@
+In the provided grammar, we encounter 2 different conflicts:
+
+1 - A shift-reduce conflict with '+' and '-' in expr: the parser doesn't know if it should shift or reduce an expression matching expr '+' expr or expr '-' expr.
+2 - A reduce-reduce conflict: multiple routes follow the current look-ahead terminal. When parsing NUMBER, it could either be an expr or a number.
+
+This is how we fixed it:

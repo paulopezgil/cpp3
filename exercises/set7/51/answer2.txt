@@ -1,0 +1,3 @@
+After reading the warning messages obtained when running bisonc++ with the provided grammar, we can conclude that the compiler deletes rule 5 (line 15).
+On the other hand, the warning messages don't state how the shift/reduce conflict was solved. But after looking at the documentation, we found that a shift is preferred over a reduction.
+Therefore, the following code generates the same grammar as bisonc++'s fix:

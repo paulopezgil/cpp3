@@ -1,0 +1,32 @@
+%token WRITE IDENT NUMBER
+
+%%
+
+write_statement:
+    write '(' arg_list ')';
+
+arg_list:
+    variable
+|
+    arg_list
+    ','
+    variable
+;
+
+variable:
+    ident
+|
+    number
+;
+
+write:
+WRITE
+;
+
+ident:
+IDENT
+;
+
+number:
+NUMBER
+;

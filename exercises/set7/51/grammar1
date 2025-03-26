@@ -1,0 +1,17 @@
+%token NUMBER
+
+%left   '+' '-'
+
+%%
+
+expr:
+    number
+|
+    expr '+' expr
+|
+    expr '-' expr
+;
+
+number:
+    NUMBER
+;
