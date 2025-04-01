@@ -1,4 +1,0 @@
-// This is the only generated file that was modified
-
-#include "Scanner.h"
-#include "../parser/Parser.h"

@@ -1,0 +1,39 @@
+// the lexer file is the same for the 2nd solution.
+
+%scanner ../scanner/Scanner.h
+%target-directory parser
+
+%token ENDL
+%token DOUBLE
+
+%%
+
+lines:
+    empty_line
+|
+    full_line lines
+;
+
+empty_line:
+    ENDL
+    {
+        ACCEPT();
+    }
+;
+
+full_line:
+    command ENDL
+    {
+        d_newLine = true;
+    }
+;
+
+command:
+    'm' DOUBLE
+|
+    's' DOUBLE
+|
+    DOUBLE
+|
+    DOUBLE DOUBLE   // integral values are also doubles
+;

@@ -1,0 +1,19 @@
+// HB: rating: ?
+// HB: contains two mistakes
+// HB: note: your explanation was correct, so make sure the grammar here is in line with it
+
+%token NUMBER
+
+%left   '+' '-'
+
+%%
+
+expr:
+    NUMBER
+|
+    number
+|
+    expr '+' expr
+|
+    expr '-' expr
+;

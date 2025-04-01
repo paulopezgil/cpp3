@@ -1,0 +1,35 @@
+%scanner ../scanner/Scanner.h
+%target-directory parser
+
+%token ENDL
+%token DOUBLE
+
+%%
+
+line: // HB: what about multiple lines?
+    prompt ENDL
+    {
+        ACCEPT();
+    }
+|
+    prompt command ENDL
+    {
+        parse(); // HB: SF? (or should be)
+    }
+;
+
+command:
+    'm' DOUBLE
+|
+    's' DOUBLE
+|
+    DOUBLE
+|
+    DOUBLE DOUBLE   // integral values are also doubles
+;
+
+prompt:
+{
+    std::cout << "? ";
+}
+;

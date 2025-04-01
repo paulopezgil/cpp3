@@ -1,0 +1,30 @@
+// HB: rating: 1
+// HB: LGTM
+
+%token NUMBER
+
+%left   '+' '-' 
+%left   '*' '/'
+%right  UNARY
+
+%%
+
+expression:
+    expression '+' expression
+|
+    expression '-' expression
+|
+    expression '*' expression
+|
+    expression '/' expression
+|
+    '-' expression      %prec UNARY
+|
+    '$' expression      %prec UNARY     // the sqrt
+|
+    '+' expression      %prec UNARY
+|
+    '(' expression ')'
+|
+    NUMBER
+;

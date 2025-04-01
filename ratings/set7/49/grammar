@@ -1,0 +1,40 @@
+// HB: rating: ?
+
+%token WRITE IDENT NUMBER
+
+%%
+
+// HB: exercise states:
+// HB: "Define the grammar recognizing series of write function calls (maybe none at all)."
+// HB: please also add series of calls or none at all
+
+write_statement:
+    write '(' arg_list ')'; // HB: semicolon character missing at end of statment
+
+arg_list:
+    variable
+|
+    arg_list
+    ','
+    variable
+;
+
+variable: // HB: numbers aren't variables; `arg` is probably a better name
+    ident
+|
+    number
+;
+
+
+// HB: stuff below is SF
+write:
+WRITE
+;
+
+ident:
+IDENT
+;
+
+number:
+NUMBER
+;

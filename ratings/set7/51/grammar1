@@ -1,0 +1,18 @@
+%token NUMBER
+
+%left   '+' '-'
+
+%%
+
+expr:
+    number // HB: just use `NUMBER` directly
+|
+    expr '+' expr
+|
+    expr '-' expr
+;
+
+number:
+    NUMBER
+;
+// HB: SF

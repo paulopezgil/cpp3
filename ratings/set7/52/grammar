@@ -1,0 +1,25 @@
+// HB: rating: 1
+
+%token NR
+
+%left INEQ // HB: it's not an inequality, but an unequality or non-equality -> NEQ
+%left '+'
+%left '*'
+%left '^' // HB: exponentiation is right-associative
+%right '-'
+
+%%
+
+expr:
+    NR
+|
+    '-' expr
+|
+    expr '+' expr
+|
+    expr '*' expr
+|
+    expr '^' expr
+|
+    expr '!' '=' expr   %prec INEQ 
+;

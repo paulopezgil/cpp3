@@ -1,0 +1,28 @@
+#include "Parser.h"
+
+
+inline void Parser::error()
+{
+    std::cerr << "Syntax error\n";
+}
+
+// $insert lex
+inline int Parser::lex()
+{
+    if (d_newLine)
+    {
+        std::cout << "? ";
+        d_newLine = false;
+    }
+
+    return d_scanner.lex();
+}
+
+inline void Parser::print()         
+{
+}
+
+inline void Parser::exceptionHandler(std::exception const &exc)         
+{
+    throw;              // re-implement to handle exceptions thrown by actions
+}
