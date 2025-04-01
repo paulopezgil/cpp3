@@ -1,0 +1,152 @@
+%class-name Parser
+
+%filenames parser
+%parsefun-source parse.cc
+
+%baseclass-preinclude rulevalue.h
+%stype RuleValue
+
+%scanner ../scanner/scanner.h
+%token-path ../scanner/tokens.h
+
+%token  NUMBER
+        IDENT
+
+%right  '='
+%left   '+' '-'
+%left   '*' '/'
+%right  uMinus
+
+// %debug
+
+%%
+
+lines:
+    lines line
+|
+    line
+;
+
+
+line:
+    expr '\n'
+    {
+        display($1);
+    }
+|
+    error '\n'    
+    {
+        prompt();
+    }
+|
+    '\n'
+    {
+        prompt();
+    }
+;
+
+expr:
+    NUMBER
+    {
+        $$ = value();
+    }
+|
+    IDENT
+    {
+        $$ = variable();
+    }
+|
+    '-' expr            %prec uMinus
+    {
+        $$ = negate($2);
+    }
+
+// arithmetic operators
+|
+    expr '+' expr
+    {
+        $$ = add($1, $3);   // basic addition
+    }    
+|
+    expr '-' expr
+    {
+        $$ = sub($1, $3);   // basic substraction
+    }    
+|
+    expression '*' expression
+    {
+        $$ = mult($1, $3);  // basic multiplication
+    }
+|
+    expression '/' expression
+    {
+        $$ = div($1, $3);   // basic division
+    }
+|
+    expression '%' expression
+    {
+        $$ = mod($1, $3);       // basic modulus
+    }
+
+// shift operators
+|
+    expression '<' '<' expression
+    {
+        $$ = lshift($1, $4);    // apply left shift
+    }
+
+|
+    expression '>' '>' expression
+    {
+        $$ = rshift($1, $4);    // apply right shift
+    }
+
+// bitwise operators
+|
+    expression '&' expression
+    {
+        $$ = bitand($1, $3)     // apply bitwise and
+    }
+|
+    expression '|' expression
+    {
+        $$ = bitor($1, $3);     // apply bitwise or
+    }
+|
+    expression '^' expression
+    {
+        $$ = bitxor($1, $3);    // apply bitwise xor
+    }
+|
+    expression '~' expression
+    {
+        $$ = bitnot($1, $3);    // apply bitwise not
+    }
+
+// arithmetic assignments
+|
+    expression '+' '=' expression
+    {
+        $$ = pluseq($1, $4);    // apply plus assignment operator
+    }
+|
+    expression '-' '=' expression
+    {
+        $$ = minuseq($1, $4);   // apply minus assignment operator
+    }
+|
+    expression '*' '=' expression
+    {
+        $$ = prodeq($1, $4);    // apply product assignment operator
+    }
+|
+    expression '/' '=' expression
+    {
+        $$ = diveq($1, $4);     // apply division assignment operator
+    }
+|
+    expression '%' '=' expression
+    {
+        $$ = modeq($1, $4);     // apply modulus assignment operator
+    }
+;

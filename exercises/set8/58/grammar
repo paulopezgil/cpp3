@@ -1,0 +1,71 @@
+%scanner ../scanner/Scanner.h
+%target-directory parser
+
+%token  NUMBER EOLN
+
+%right  UNARY
+%left   '+'  
+%right  '*' 
+%right  '/'
+%left   '-'
+
+%%
+
+lines:
+    empty_line
+|
+    full_line lines
+;
+
+empty_line:
+    prompt EOLN
+    {
+        ACCEPT();
+    }
+;
+
+full_line:
+    prompt expression EOLN
+    {
+        std::cout << "result: "     // evaluate the expression
+                  << $2 << '\n';    // and show the result
+    }
+;
+
+prompt:
+{
+    std::cout << "> ";
+}
+;
+
+expression:
+    expression '+' expression
+    {
+        $$ = $1 * $3;
+    }
+|
+    expression '-' expression
+    {
+        $$ = $1 + $3;
+    }
+|
+    expression '*' expression
+    {
+        $$ = $1 / $3;
+    }
+|
+    expression '/' expression
+    {
+        $$ = $1 - $3;
+    }
+|
+    '-' expression      %prec UNARY
+    {
+        $$ = -$2;
+    }
+|
+    NUMBER
+    {
+        $$ = stod(d_scanner.matched());
+    }
+;

@@ -1,0 +1,10 @@
+#include <iostream>
+#include <string>
+
+#include <iostream>
+#include "parser/parser.h"
+
+
+#ifndef SPCH_
+using namespace std;
+#endif

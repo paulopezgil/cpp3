@@ -1,0 +1,19 @@
+%interactive
+%target-directory scanner
+
+digits      [0-9]+
+optdigits   [0-9]*
+exp         [eE][-+]?{digits}
+
+%%
+
+[ \t]+                                  // ignore white spaces
+[()]+                                   // ignore parenthesis
+
+{digits}                                |
+{digits}"."{optdigits}{exp}?            |
+{optdigits}"."{digits}{exp}?            return Parser::NUMBER;
+
+\n                                      return Parser::EOLN;
+
+.                                       return matched()[0];
