@@ -6,16 +6,21 @@
 
 %%
 
-line:
+lines:
+    empty_line
+|
+    full_line lines
+;
+
+empty_line:
     prompt ENDL
     {
         ACCEPT();
     }
-|
+;
+
+full_line:
     prompt command ENDL
-    {
-        parse();
-    }
 ;
 
 command:
