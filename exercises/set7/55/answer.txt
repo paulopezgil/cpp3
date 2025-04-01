@@ -1,0 +1,27 @@
+In the provided solution, we used the prompt rule provided in the exercise.
+
+In our second solution, we modified lex() in parser/Parser.ih:
+inline int Parser::lex()
+{
+    std::cout << "? ";
+    return d_scanner.lex();
+}
+This doesn't produce the right output:
+? 12354
+? ? 42353
+? ? 4325
+? ?
+
+In our third solution, we modified lex() in scanner/lex.cc:
+int Scanner::lex()
+{
+    std::cout << "? ";
+    return lex_() != 0        ? d_token_ :
+           interactiveLine() ?   lex_()   :
+                                 0;
+}
+This yields correct results:
+? 14325
+? 4325
+? 4325
+?

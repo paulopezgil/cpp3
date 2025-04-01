@@ -1,0 +1,1 @@
+In this solution, we used the prompt rule provided in the exercise.
