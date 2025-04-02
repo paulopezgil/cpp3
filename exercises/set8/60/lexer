@@ -1,0 +1,35 @@
+%interactive
+%target-directory scanner
+
+%%
+
+[ \t]+                              // ignore white spaces
+
+// double numbers
+'-'?[0-9]+\.?[0-9]*                 |
+'-'?[0-9]+'e''-'?[0-9]+             return Parser::DOUBLE;
+
+// trigonometric functions
+"cos"                               return Parser::COS;
+"sin"                               return Parser::SIN;
+"tan"                               return Parser::TAN;
+"acos"                              return Parser::ACOS;
+"asin"                              return Parser::ASIN;
+"atan"                              return Parser::ATAN;
+"atan2"                             return Parser::ATAN2;
+
+// hyperbolic functions
+"cosh"                              return Parser::COSH;
+"sinh"                              return Parser::SINH;
+"tanh"                              return Parser::TANH;
+"acosh"                             return Parser::ACOSH;
+"asinh"                             return Parser::ASINH;
+"atanh"                             return Parser::ATANH;
+
+// arithmetic functions
+"exp"                               return Parser::EXP;
+"log"                               return Parser::LOG;
+"pow"                               return Parser::POW;
+"sqrt"                              return Parser::SQRT;
+
+.|\n                                return matched()[0];
